@@ -1,8 +1,9 @@
-
+import {AnimatePresence, motion} from "framer-motion";
 
 type Props = {
   contentSlot : React.ReactNode;
   navBarSlot  : React.ReactNode;
+  footerSlot  : React.ReactNode;
 }
 
 
@@ -13,9 +14,12 @@ export default function MainLayout(props: Props){
         <header className="mb-1">
           {props.navBarSlot}
         </header>
-        <main className="bg-white rounded p-8 shadow-sm">
-          {props.contentSlot}
-        </main>
+        <AnimatePresence mode="wait">
+          <motion.main className="bg-white rounded p-8 shadow-sm min-h-[100vh]">
+            {props.contentSlot}
+          </motion.main>
+        </AnimatePresence>
+          {props.footerSlot}
       </div>
     </div>
   )
