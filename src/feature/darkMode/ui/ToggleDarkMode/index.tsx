@@ -41,7 +41,7 @@ export function ToggleDarkMode(){
       <label 
         htmlFor="dark-button" 
         className={clsx(
-          "flex w-14 rounded-full cursor-pointer bg-white p-1 max-h-6 hover:bg-gray-100",
+          `flex w-14 rounded-full cursor-pointer bg-white p-1 max-h-6 hover:bg-gray-100 dark:bg-gray-600 dark:hover:bg-gray-500`,
           colorMode === "light" ? "justify-end" : "justify-start"
         )}
       >
@@ -51,8 +51,8 @@ export function ToggleDarkMode(){
           className=""
         >
           {colorMode === "light" 
-            ? <Sun className="h-full" />
-            : <Moon className="h-full" />
+            ? <Sun className="h-full dark:stroke-white" />
+            : <Moon className="h-full dark:stroke-white" />
           }
         </motion.div>
       </label>

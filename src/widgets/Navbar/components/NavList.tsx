@@ -29,7 +29,10 @@ export function NavList(props: Props){
   },[pathName])
 
   return(
-    <li className={clsx("relative hover:text-black text-sm", isActive ? "text-black" : "text-gray-600")}>
+    <li className={clsx(
+        `relative hover:text-black text-sm `, 
+        isActive ? "text-black dark:text-gray-400 " : "text-gray-600 dark:hover:text-gray-400"
+    )}>
       <Link href={props.path}>
         {props.children}
         {isActive &&

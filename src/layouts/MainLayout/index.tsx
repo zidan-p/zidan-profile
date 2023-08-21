@@ -16,7 +16,7 @@ export default function MainLayout(props: Props){
           {props.navBarSlot}
         </header>
         <AnimatePresence mode="wait">
-          <motion.main className="bg-white  rounded p-8 shadow-sm min-h-[100vh] dark:bg-gray-500 dark:text-white">
+          <motion.main className="bg-white  rounded p-8 shadow-sm min-h-[100vh] dark:bg-gray-600 dark:text-white">
             {props.contentSlot}
           </motion.main>
         </AnimatePresence>
