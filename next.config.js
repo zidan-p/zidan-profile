@@ -23,7 +23,12 @@ module.exports = {
         // see: https://github.com/vercel/next.js/issues/48177#issuecomment-1506251112 
         issuer: fileLoaderRule.issuer,
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
-        use: ['@svgr/webpack'],
+        use: [{
+          loader : '@svgr/webpack',
+          options: {
+            icon: true
+          },
+        }],
       },
     )
 
