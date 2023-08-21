@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChangeEvent, FormEvent, CSSProperties, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import clsx from "clsx";
+import { useColorMode } from "@/shared/hooks/useColorMode";
 
 const spring = {
   type: "spring",
@@ -24,12 +25,15 @@ const variant : Variants = {
 
 export function ToggleDarkMode(){
 
-  const [checked, setChecked] = useState(false);
+  // checked true === light mode
+  const [colorMode, setColorMode] = useColorMode();
 
   const handleCheck = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.checked);
-    setChecked(e.target.checked);
+
+    setColorMode(e.target.checked ? "light" : "dark")
   }
+
 
   return(
     <div className="">
@@ -38,7 +42,7 @@ export function ToggleDarkMode(){
         htmlFor="dark-button" 
         className={clsx(
           "flex w-14 rounded-full cursor-pointer bg-white p-1 max-h-6 hover:bg-gray-100",
-          checked ? "justify-end" : "justify-start"
+          colorMode === "light" ? "justify-end" : "justify-start"
         )}
       >
         <motion.div 
@@ -46,7 +50,7 @@ export function ToggleDarkMode(){
           transition={spring}  
           className=""
         >
-          {checked 
+          {colorMode === "light" 
             ? <Sun className="h-full" />
             : <Moon className="h-full" />
           }
