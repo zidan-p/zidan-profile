@@ -14,9 +14,9 @@ export default function NavBar(){
           Zidan Putra....
         </div>
         <ul className="flex gap-6 font-semibold">
-          <NavList isActive={true}> Home </NavList>
-          <NavList> About </NavList>
-          <NavList> Project </NavList>
+          <NavList path="/" isActive={true}> Home </NavList>
+          <NavList path="about"> About </NavList>
+          <NavList path="project"> Project </NavList>
         </ul>
       </div>
       

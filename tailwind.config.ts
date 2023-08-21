@@ -8,6 +8,7 @@ const config: Config = {
     './src/layouts/**/*.{js,ts,jsx,tsx,mdx}',
     './src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
     './src/feature/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/shared/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
   },

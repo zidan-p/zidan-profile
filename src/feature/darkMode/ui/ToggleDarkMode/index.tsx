@@ -46,7 +46,10 @@ export function ToggleDarkMode(){
           transition={spring}  
           className=""
         >
-          <Sun className="h-full" />
+          {checked 
+            ? <Sun className="h-full" />
+            : <Moon className="h-full" />
+          }
         </motion.div>
       </label>
     </div>
