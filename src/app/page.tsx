@@ -14,7 +14,7 @@ export default function Home() {
     <main>
       <section className="flex justify-between pb-4 border-b">
         <div className="">
-          <p>Hello there 👋, it's me</p>
+          <p>Hello there 👋, it`&apos;`s me</p>
           <h1 className='text-5xl font-bold text-gray-500'>
             <span className='text-yellow-400'>Zidan </span>
             Putra Rahman
@@ -47,7 +47,7 @@ export default function Home() {
       <section className='mt-10'>
         <div className="mb-3">
           <h3 className='text-yellow-400 text-xl  font-semibold'>Experiences</h3>
-          <p className='text-sm'>Wheter it's from internship, work or another activities</p>
+          <p className='text-sm'>Wheter it&apos;s from internship, work or another activities</p>
         </div>
         <div className="flex flex-col gap-7">
           <div className="flex items-center">

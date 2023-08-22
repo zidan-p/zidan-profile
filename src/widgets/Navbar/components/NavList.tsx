@@ -9,7 +9,6 @@ import {motion} from "framer-motion";
 
 type Props = {
   children: string;
-  isActive?: boolean;
   path: string;
 }
 
@@ -26,6 +25,7 @@ export function NavList(props: Props){
     if(dividedPath[1] === "" && props.path === "/")
       return true;
     return false;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[pathName])
 
   return(
