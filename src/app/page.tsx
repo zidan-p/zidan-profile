@@ -21,15 +21,15 @@ export default function Home() {
           </h1>
           <p>A Web developer from East Java - Indonesia</p>
           <div className="flex gap-8 mt-5">
-            <a href='https://github.com/zidan-p' className="inline-flex gap-1 items-center hover:underline">
+            <a target="_blank" rel="noopener" href='https://github.com/zidan-p' className="inline-flex gap-1 items-center hover:underline">
               <GithubIcon />
               <span>Github</span>
             </a>
-            <a href='#' className="inline-flex gap-1 items-center hover:underline">
+            <a target="_blank" rel="noopener" href='#' className="inline-flex gap-1 items-center hover:underline">
               <FileTextIcon />
               <span>My Resume</span>
             </a>
-            <a href='https://www.linkedin.com/in/zidan-putra-rahman-546b6b232/' className="inline-flex gap-1 items-center hover:underline">
+            <a target="_blank" rel="noopener" href='https://www.linkedin.com/in/zidan-putra-rahman-546b6b232/' className="inline-flex gap-1 items-center hover:underline">
               <LinkedInIcon />
               <span>LinkedIn</span>
             </a>
