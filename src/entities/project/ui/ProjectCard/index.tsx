@@ -16,7 +16,9 @@ export function ProjectCard (props: Project){
         <p className="text-sm font-light text-gray-700">{props.description}</p>
         <p>{props.stack}</p>
       </div>
-      <Image className="mx-auto" src="/img/notFound.png" alt={props.name}  width={200} height={200}/>
+      <div className="w-full relative min-h-[120px]">
+        <Image fill sizes="200px" className="mx-auto object-contain" src="/img/notFound.png" alt={props.name} />
+      </div>
     </a>
   )
 }

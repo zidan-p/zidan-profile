@@ -75,7 +75,7 @@ export default function Home() {
           <h3 className='text-yellow-400 text-xl  font-semibold'>Certification</h3>
           <p className='text-sm'>My certification for competency which I have mastered</p>
         </div>
-        <div className="flex justify-between mb-2">
+        <div className="grid justify-between grid-cols-3 gap-6 mb-2">
           <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
           <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
           <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
