@@ -14,9 +14,10 @@ export default function NavBar(){
           Zidan Putra....
         </div>
         <ul className="flex gap-6 font-semibold">
-          <NavList path="/" isActive={true}> Home </NavList>
+          <NavList path="/"> Home </NavList>
           <NavList path="about"> About </NavList>
           <NavList path="project"> Project </NavList>
+          <NavList path="certificate"> Certificate </NavList>
         </ul>
       </div>
       

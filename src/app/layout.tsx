@@ -8,7 +8,7 @@ import { Footer } from '@/widgets/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zidan Putra Rahman | My Profile',
+  title: 'Zidan Putra Rahman.document',
   description: 'My profile'
 }
 

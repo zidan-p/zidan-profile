@@ -1,3 +1,4 @@
+import { ProjectCard } from "@/entities/project";
 
 
 
@@ -5,7 +6,37 @@
 export default function Project(){
   return(
     <main>
-      Heloooo, ini adalah project saya
+      <section>
+        <div className="mb-3">
+          <h3 className='text-yellow-400 text-xl  font-semibold'>Project</h3>
+          <p className='text-sm'>My project collection</p>
+        </div>
+      </section>
+      <section>
+        <div className="grid justify-between grid-cols-3 gap-6 mb-2">
+          <ProjectCard
+            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
+            img=''
+            name='Project bagus'
+            url=''
+            stack={["hello", "wolrd"]}
+          />
+          <ProjectCard 
+            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
+            img=''
+            name='Project bagus'
+            url=''
+            stack={["hello", "wolrd"]}
+          />
+          <ProjectCard 
+            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
+            img=''
+            name='Project bagus'
+            url=''
+            stack={["hello", "wolrd"]}
+          />
+        </div>
+      </section>
     </main>
   )
 }
