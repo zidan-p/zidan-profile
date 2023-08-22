@@ -10,9 +10,11 @@ const config: Config = {
     './src/widgets/**/*.{js,ts,jsx,tsx,mdx}',
     './src/feature/**/*.{js,ts,jsx,tsx,mdx}',
     './src/shared/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/entities/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-  },
+    
+  }, 
   plugins: [],
 }
 export default config
