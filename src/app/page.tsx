@@ -9,6 +9,10 @@ import { CertificateCard } from '@/entities/certification';
 import Link from 'next/link';
 import { ProjectCard } from '@/entities/project';
 
+// data
+import { projects } from '@/data/project';
+import { certificates } from '@/data/certificate';
+
 export default function Home() {
   return (
     <main>
@@ -76,12 +80,18 @@ export default function Home() {
           <p className='text-sm'>My certification for competency which I have mastered</p>
         </div>
         <div className="grid justify-between grid-cols-3 gap-6 mb-2">
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
+          {certificates.slice(0,3).map((certi, index) => (
+            <CertificateCard 
+              key={index}
+              credibility={certi.credibility} 
+              dateObtained={certi.dateObtained} 
+              img={certi.img} 
+              name={certi.name}
+            />
+          ))}
         </div>
         <div className="flex">
-          <Link href="/certification" className='border rounded px-6 hover:bg-gray-200' >
+          <Link href="/certificate" className='border rounded px-6 hover:bg-gray-200' >
             See more
           </Link>
         </div>

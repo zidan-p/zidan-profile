@@ -15,8 +15,9 @@ export default function Certificate(){
       </section>
       <section>
         <div className="grid justify-between grid-cols-3 gap-6 mb-2">
-          {certificates.map(certi => (
+          {certificates.map((certi, index) => (
             <CertificateCard 
+              key={index}
               credibility={certi.credibility} 
               dateObtained={certi.dateObtained} 
               img={certi.img} 

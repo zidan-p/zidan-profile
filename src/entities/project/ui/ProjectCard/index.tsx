@@ -10,7 +10,7 @@ import { Project } from "../../model/types";
 
 export function ProjectCard (props: Project){
   return (
-    <a href={props.url} className="border border-gray-200 p-2 rounded bg-white hover:bg-gray-200">
+    <a target="_blank" href={props.url} className="border border-gray-200 p-2 rounded bg-white hover:bg-gray-200">
       <div className="">
         <h1 className="font-semibold">{props.name}</h1>
         <p className="text-sm font-light text-gray-700">{props.description}</p>

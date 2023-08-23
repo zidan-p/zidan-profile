@@ -1,5 +1,5 @@
 import { ProjectCard } from "@/entities/project";
-
+import { projects } from "@/data/project";
 
 
 
@@ -14,27 +14,16 @@ export default function Project(){
       </section>
       <section>
         <div className="grid justify-between grid-cols-3 gap-6 mb-2">
-          <ProjectCard
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
-          <ProjectCard 
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
-          <ProjectCard 
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              description={project.description}
+              img={project.img}
+              name={project.name}
+              url={project.url}
+              stack={project.stack}
+            />
+          ))}
         </div>
       </section>
     </main>
