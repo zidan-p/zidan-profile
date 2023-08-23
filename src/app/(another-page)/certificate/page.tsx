@@ -1,5 +1,5 @@
 import { CertificateCard } from "@/entities/certification";
-
+import { certificates } from "@/data/certificate";
 
 
 
@@ -15,9 +15,14 @@ export default function Certificate(){
       </section>
       <section>
         <div className="grid justify-between grid-cols-3 gap-6 mb-2">
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
-          <CertificateCard credibility='' dateObtained='12 noverber' img='hello' name='java specialits' />
+          {certificates.map(certi => (
+            <CertificateCard 
+              credibility={certi.credibility} 
+              dateObtained={certi.dateObtained} 
+              img={certi.img} 
+              name={certi.name}
+            />
+          ))}
         </div>
       </section>
     </main>
