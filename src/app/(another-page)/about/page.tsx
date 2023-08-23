@@ -9,7 +9,7 @@ export default function About(){
       <section>
         <div className="mb-3">
           <h3 className='text-yellow-400 text-xl  font-semibold'>About</h3>
-          <h1 className='text-3xl font-bold text-gray-600'>Me, Zidan Putra Rahman</h1>
+          <h1 className='text-3xl font-bold text-gray-600 dark:text-gray-300'>Me, Zidan Putra Rahman</h1>
         </div>
         <div className="">
           <p>

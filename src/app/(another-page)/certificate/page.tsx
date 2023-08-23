@@ -9,8 +9,8 @@ export default function Certificate(){
     <main>
       <section>
         <div className="mb-3">
-          <h3 className='text-yellow-400 text-xl  font-semibold'>Project</h3>
-          <p className='text-sm'>My project collection</p>
+          <h3 className='text-yellow-400 text-xl  font-semibold'>Certificate</h3>
+          <p className='text-sm'>My certification for competency which I have mastered</p>
         </div>
       </section>
       <section>

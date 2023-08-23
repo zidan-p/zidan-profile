@@ -26,4 +26,11 @@ export const projects: Project[] = [
     stack       : [""],
     url         : "https://github.com/zidan-p/ukk-hotel-frontend"
   },
+  {
+    img         : "",
+    name        : "Pong Game",
+    description : "Basic Pong game written in java",
+    stack       : [""],
+    url         : "https://github.com/zidan-p/pong-java"
+  },
 ]

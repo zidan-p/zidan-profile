@@ -16,9 +16,9 @@ import { certificates } from '@/data/certificate';
 export default function Home() {
   return (
     <main>
-      <section className="flex justify-between pb-4 border-b">
+      <section className="flex justify-between pb-4 border-b dark:border-b-gray-500">
         <div className="">
-          <p>Hello there 👋, it`&apos;`s me</p>
+          <p>Hello there 👋, it&apos;s me</p>
           <h1 className='text-5xl font-bold text-gray-500'>
             <span className='text-yellow-400'>Zidan </span>
             Putra Rahman
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
       </section>
       <section className='mt-6'>
-        <p className='text-gray-700'>
+        <p className='text-gray-700 dark:text-gray-300'>
           Fresh graduate from vocational school in software engineering major. I have Knowledge and Experience building Web Application, especially in Frontend Development.
         </p>
       </section>
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
             <div className="">
               <h2 className=' font-semibold'>FullStack freelance developer at Fixransomware</h2>
-              <p className='text-sm font-light text-gray-700'>July 2023 - Now</p>
+              <p className='text-sm font-light text-gray-700 dark:text-gray-400'>July 2023 - Now</p>
             </div>
           </div>
           <div className="flex items-center">
@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="">
               <h2 className=' font-semibold'>Intern developer at Diskominfo Banyuwangi</h2>
-              <p className='text-sm font-light text-gray-700'>June 2022 - November 2022</p>
+              <p className='text-sm font-light text-gray-700 dark:text-gray-400'>June 2022 - November 2022</p>
             </div>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function Home() {
           ))}
         </div>
         <div className="flex">
-          <Link href="/certificate" className='border rounded px-6 hover:bg-gray-200' >
+          <Link href="/certificate" className='border border-gray-200 rounded px-6 hover:bg-gray-200 dark:border-gray-500 dark:hover:bg-gray-500' >
             See more
           </Link>
         </div>
@@ -102,30 +102,19 @@ export default function Home() {
           <p className='text-sm'>My project collection</p>
         </div>
         <div className="grid justify-between grid-cols-3 gap-6 mb-2">
-          <ProjectCard 
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
-          <ProjectCard 
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
-          <ProjectCard 
-            description='Lorem ipsum dolor sit, amet consectetur adipisicing elit.' 
-            img=''
-            name='Project bagus'
-            url=''
-            stack={["hello", "wolrd"]}
-          />
+          {projects.slice(0,3).map((project, index) => (
+            <ProjectCard
+              key={index}
+              description={project.description}
+              img={project.img}
+              name={project.name}
+              url={project.url}
+              stack={project.stack}
+            />
+          ))}
         </div>
         <div className="flex">
-          <Link href="/project" className='border rounded px-6 hover:bg-gray-200' >
+          <Link href="/project" className='border border-gray-200 rounded px-6 hover:bg-gray-200 dark:border-gray-500 dark:hover:bg-gray-500' >
             See more
           </Link>
         </div>
