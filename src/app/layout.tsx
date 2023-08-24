@@ -8,8 +8,15 @@ import { Footer } from '@/widgets/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zidan Putra Rahman.document',
-  description: 'My profile'
+  title: 'Zidan Putra Rahman | Profile',
+  description: 'My profile',
+  openGraph:{
+    type: "profile",
+    title: "Zidan Putra Rahman",
+    description: "My Profile",
+    url: "https://www.zidanputra.my.id",
+    siteName: "Zidan Putra Rahman"
+  }
 }
 
 export default function RootLayout({

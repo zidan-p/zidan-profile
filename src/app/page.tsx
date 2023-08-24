@@ -19,7 +19,7 @@ export default function Home() {
       <section className="flex justify-between pb-4 border-b dark:border-b-gray-500">
         <div className="">
           <p>Hello there 👋, it&apos;s me</p>
-          <h1 className='text-5xl font-bold text-gray-500'>
+          <h1 className='text-5xl font-bold text-gray-500 dark:text-gray-300'>
             <span className='text-yellow-400'>Zidan </span>
             Putra Rahman
           </h1>
