@@ -30,9 +30,9 @@ export default function Home() {
               <GithubIcon />
               <span>Github</span>
             </a>
-            <a target="_blank" rel="noopener" href='/asset/Zidan-Putra-Rahman_CV.pdf' className="inline-flex gap-1 items-center hover:underline">
+            <a target="_blank" rel="noopener" href='/asset/Zidan-Putra-Rahman_CV-GB.pdf' className="inline-flex gap-1 items-center hover:underline">
               <FileTextIcon />
-              <span>My CV (indonesian)</span>
+              <span>My CV (Global)</span>
             </a>
             <a target="_blank" rel="noopener" href='https://www.linkedin.com/in/zidan-putra-rahman-546b6b232/' className="inline-flex gap-1 items-center hover:underline">
               <LinkedInIcon />

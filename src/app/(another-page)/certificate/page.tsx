@@ -14,7 +14,7 @@ export default function Certificate(){
         </div>
       </section>
       <section>
-        <div className="grid justify-between grid-cols-3 gap-6 mb-2">
+        <div className="grid justify-between grid-cols-1 md:grid-cols-3 gap-6 mb-2">
           {certificates.map((certi, index) => (
             <CertificateCard 
               key={index}
