@@ -37,7 +37,7 @@ export function ToggleDarkMode(){
 
   return(
     <div className="">
-      <input onChange={handleCheck} type="checkbox" name="dark-button" id="dark-button" className="hidden" />
+      <input onChange={handleCheck} type="checkbox" checked={colorMode === "light"}  name="dark-button" id="dark-button" className="hidden" />
       <label 
         htmlFor="dark-button" 
         className={clsx(
