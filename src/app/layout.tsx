@@ -8,6 +8,7 @@ import { Footer } from '@/widgets/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  viewport: { width: "device-width", initialScale: 1 },
   title: 'Zidan Putra Rahman | Profile',
   description: 'My profile',
   openGraph:{

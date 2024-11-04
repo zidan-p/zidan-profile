@@ -11,7 +11,7 @@ type Props = {
 export default function MainLayout(props: Props){
   return(
     <div className="bg-gray-300 min-h-screen dark:bg-gray-700">
-      <div className="w-[820px] mx-auto ">
+      <div className="max-w-[820px] mx-auto ">
         <header className="mb-1 bg-gray-300 dark:bg-gray-700">
           {props.navBarSlot}
         </header>

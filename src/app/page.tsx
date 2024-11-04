@@ -16,7 +16,8 @@ import { certificates } from '@/data/certificate';
 export default function Home() {
   return (
     <main>
-      <section className="flex justify-between pb-4 border-b dark:border-b-gray-500">
+      <section className="flex flex-col-reverse gap-5  md:flex-row justify-between pb-4 border-b dark:border-b-gray-500">
+        
         <div className="">
           <p>Hello there 👋, it&apos;s me</p>
           <h1 className='text-5xl font-bold text-gray-500 dark:text-gray-300'>
@@ -24,7 +25,7 @@ export default function Home() {
             Putra Rahman
           </h1>
           <p>A Web developer from East Java - Indonesia</p>
-          <div className="flex gap-8 mt-5">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-8 mt-5">
             <a target="_blank" rel="noopener" href='https://github.com/zidan-p' className="inline-flex gap-1 items-center hover:underline">
               <GithubIcon />
               <span>Github</span>
