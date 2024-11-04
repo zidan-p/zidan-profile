@@ -41,7 +41,7 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <Image src={profileImage} alt='hello' placeholder='blur' width={170} height={158.8} />
+          <Image className='' src={profileImage} alt='hello' placeholder='blur' width={170} height={158.8} />
         </div>
       </section>
       <section className='mt-6'>
@@ -80,7 +80,7 @@ export default function Home() {
           <h3 className='text-yellow-400 text-xl  font-semibold'>Certification</h3>
           <p className='text-sm'>My certification for competency which I have mastered</p>
         </div>
-        <div className="grid justify-between grid-cols-3 gap-6 mb-2">
+        <div className="grid justify-between w-full grid-cols-1  md:grid-cols-3 gap-6 mb-2">
           {certificates.slice(0,3).map((certi, index) => (
             <CertificateCard 
               key={index}
@@ -102,7 +102,7 @@ export default function Home() {
           <h3 className='text-yellow-400 text-xl  font-semibold'>Project</h3>
           <p className='text-sm'>My project collection</p>
         </div>
-        <div className="grid justify-between grid-cols-3 gap-6 mb-2">
+        <div className="grid justify-between grid-cols-1  md:grid-cols-3 gap-6 mb-2">
           {projects.slice(0,3).map((project, index) => (
             <ProjectCard
               key={index}
