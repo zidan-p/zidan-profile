@@ -16,7 +16,7 @@ type Props = {
 export function NavList(props: Props){
   const pathName = usePathname();
 
-  // panjang sekali
+
   const isActive = useMemo<boolean>(()=>{
     const dividedPath = pathName.split("/");
     if(dividedPath[1] === props.path)
