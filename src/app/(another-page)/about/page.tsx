@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProfileImage from "./../../asset/img/profile.png";
+import { PongGame } from "@/widgets/pong-game";
 
 
 
@@ -23,6 +24,7 @@ export default function About(){
           </p>
         </div>
       </section>
+      <PongGame />
     </main>
   )
 }
