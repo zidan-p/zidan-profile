@@ -1,6 +1,7 @@
 import { Body } from "./body";
 import { Controller } from "./controller";
 import { Vector } from "./core";
+import { Rect } from "./rect";
 
 interface BallConstructor {
   pos: Vector;
@@ -8,12 +9,13 @@ interface BallConstructor {
   color?: string
   controller?: Controller;
   context: CanvasRenderingContext2D;
-  velocity?: Vector
+  velocity?: Vector;
 }
 
 export class Ball extends Body {
   public rad: number
   public readonly _keyForce = 1;
+  public speed: number = 5;
 
   constructor(payload: BallConstructor){
     super(payload);
@@ -48,5 +50,18 @@ export class Ball extends Body {
     this.context.arc(this.pos.x, this.pos.y, this.rad , 0, Math.PI*2, false);
     this.context.fill();
     this.context.closePath();
+  }
+
+
+  // i set collisiion of  this shape as teh rect
+  collideWithRect(targetRect: Rect){
+    if(
+      this.pos.x - this.rad < targetRect.pos.x + targetRect.width &&
+      this.pos.x + this.rad > targetRect.pos.x &&
+      this.pos.y - this.rad < targetRect.pos.y + targetRect.height &&
+      this.pos.y + this.rad > targetRect.pos.y 
+    ){
+
+    }
   }
 }
