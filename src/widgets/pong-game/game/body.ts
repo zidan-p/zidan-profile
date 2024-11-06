@@ -16,8 +16,8 @@ export abstract class Body {
   public velocity: Vector;
   public readonly _keyForce = 1;
 
-  protected  readonly context: CanvasRenderingContext2D;
-  protected  readonly controller?: Controller
+  protected readonly context: CanvasRenderingContext2D;
+  protected  controller?: Controller
 
   public directionMovement = {
     up: false,
@@ -49,6 +49,11 @@ export abstract class Body {
     this.controller.onReleaseUp(() => this.directionMovement.up = false);
     this.controller.onReleaseRight(() => this.directionMovement.right = false);
     this.controller.onReleaseLeft(() => this.directionMovement.left = false);
+  }
+
+  setController(c: Controller){
+    this.controller = c;
+    this.registerController;
   }
 
   abstract keyControll(): void;
