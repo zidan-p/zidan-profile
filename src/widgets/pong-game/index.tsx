@@ -24,7 +24,7 @@ export function PongGame(){
     const dpr = window.devicePixelRatio;
     const rect = canvasRef.getBoundingClientRect();
 
-    // const scale = (dpr * rect.width) 
+    const scale = (dpr * rect.width) 
 
     // console.log(rect);
     console.log(dpr);
@@ -62,7 +62,7 @@ export function PongGame(){
       y: canvasRef.height/2,
       radius: 5,
       color: "black",
-      speed: 20,
+      speed: 20,  
       velocityX: 3, 
       velocityY: 1,
     }
@@ -128,8 +128,8 @@ export function PongGame(){
 
 
   return (
-    <div ref={setCanvasCOntainer} className="w-full">
-      <canvas ref={setCanvasRef} className="w-full"/>
+    <div ref={setCanvasCOntainer} className="w-full h-28">
+      <canvas ref={setCanvasRef} className="w-full h-full"/>
       hello canvas
     </div>
   )
