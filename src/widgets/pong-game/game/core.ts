@@ -23,6 +23,16 @@ export class Vector {
   mag(){ return Math.sqrt(this.x**2 + this.y**2);}
 
   mult(n: number){return new Vector(this.x*n, this.y*n);}
+
+  rotate(angle: number){
+    angle = -angle * (Math.PI/180);
+    const cos = Math.cos(angle);
+    const sin = Math.sin(angle);
+    return new Vector(
+      Math.round(10000*(this.x * cos - this.y * sin))/10000, 
+      Math.round(10000*(this.x * sin + this.y * cos))/10000
+    );
+  }
 }
 
 

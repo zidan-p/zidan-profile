@@ -21,6 +21,8 @@ export class Game {
   private _canvasDimension: CanvasDimension;
 
 
+
+
   constructor(canvasContext: CanvasRenderingContext2D, canvasDimension: CanvasDimension){
     this._canvasDimension = canvasDimension;
     this._context = canvasContext;
@@ -52,10 +54,10 @@ export class Game {
       velocity: new Vector(0,0)
     });
 
-    const leftPaddleAiCOntroller = new AIController(this._leftPaddle, this._ball);
+    const leftPaddleAiCOntroller = new AIController(this._leftPaddle, this._ball, this._canvasDimension);
     this._leftPaddle.setController(leftPaddleAiCOntroller);
 
-    const rightPaddleAIController = new AIController(this._rightPaddle, this._ball);
+    const rightPaddleAIController = new AIController(this._rightPaddle, this._ball,  this._canvasDimension);
     this._rightPaddle.setController(rightPaddleAIController);
 
   }
@@ -73,6 +75,13 @@ export class Game {
     this._leftPaddle.move();
     this._rightPaddle.move();
     this._ball.bounceWithEdge(this._canvasDimension);
+    this._ball.collideWithRect(this._leftPaddle);
+    this._ball.collideWithRect(this._rightPaddle);
+    this._ball.onPassTheEdge(this._canvasDimension, () => {
+      // center the ball
+      this._ball.pos.set(this._canvasDimension.width / 2, this._canvasDimension.height / 2)
+      this._ball.velocity = this._ball.velocity.rotate(180);
+    })
   }
 
   update(){

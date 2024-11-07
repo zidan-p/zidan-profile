@@ -16,7 +16,7 @@ interface RectConstructor {
 export class Rect extends Body {
   public width: number
   public height: number
-  public readonly _keyForce = 1;
+  public  _keyForce = 3;
 
   public directionMovement = {
     up: false,
@@ -35,6 +35,13 @@ export class Rect extends Body {
   keyControll(){
     if(this.directionMovement.up) this.velocity.y = -this._keyForce;
     if(this.directionMovement.down) this.velocity.y = this._keyForce;
+    // if(this.directionMovement.up) this.velocity.y = -Math.abs(this.velocity.y);
+    // if(this.directionMovement.down) this.velocity.y = Math.abs(this.velocity.y);
+  }
+
+  move(): void {
+    super.move();
+    if(this.controller) this.controller.update();
   }
 
   render(){
