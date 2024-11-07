@@ -19,12 +19,14 @@ export class Ball extends Body {
   public readonly _keyForce = 1;
   public speed: number = 5;
 
+
   constructor(payload: BallConstructor){
     super(payload);
     this.rad = payload.rad;
   }
 
-  keyControll(){
+  keyControll(): void {}
+  // keyControll(){
     // no key controll for ball
     // if(this.directionMovement.left) this.velocity.x = -this._keyForce;
     // if(this.directionMovement.up) this.velocity.y = -this._keyForce;
@@ -37,7 +39,7 @@ export class Ball extends Body {
     // if(!this.directionMovement.up && !this.directionMovement.down){
     //   this.velocity.y = 0;
     // }
-  }
+  // }
   // reposition(){
   //   this.pos = this.pos.add(this.velocity);
   // }
@@ -86,6 +88,20 @@ export class Ball extends Body {
       const oldSign = Math.sign(this.velocity.x);
       this.velocity.set( newVelocityX * (-1 * oldSign), newVelocityY);
 
+    }
+  }
+
+  onPassTheEdge(containerRect: {height: number, width: number}, cb: () => void){
+    if(this.velocity.x > 0){
+      if(this.pos.x + this.rad > containerRect.width){
+        cb();
+      }
+    }
+
+    else if(this.velocity.x < 0){
+      if(this.pos.x - this.rad < 0){
+        cb();
+      }
     }
   }
 
