@@ -53,17 +53,27 @@ export class AIController {
     // console.log("conctroller")
     // when the ball is above
     // console.log(this.controllerEventBus)
-    if(this.targetBall.pos.y + (this.targetBall.rad ) < this.currentPaddle.pos.y){
-      // console.log("update controller ---")
-      if(this.currentPaddle.directionMovement.down) this.triggerEventBus("onReleaseDown");
-      this.triggerEventBus("onUp");
+    // only move in 300px distance
+    if(Math.abs(this.targetBall.pos.x - this.currentPaddle.pos.x) < 300){
+      if(this.targetBall.pos.y + (this.targetBall.rad ) < this.currentPaddle.pos.y){
+        if(this.currentPaddle.directionMovement.down) this.triggerEventBus("onReleaseDown");
+        this.triggerEventBus("onUp");
+        // console.log("update controller ---")
+      }
+      // when the ball is below
+      else if(this.targetBall.pos.y + (this.targetBall.rad * 2) > this.currentPaddle.pos.y + this.currentPaddle.height){
+        if(this.currentPaddle.directionMovement.up) this.triggerEventBus("onReleaseUp");
+        this.triggerEventBus("onDown");
+      }
+
     }
 
-    // when the ball is below
-    else if(this.targetBall.pos.y + (this.targetBall.rad * 2) > this.currentPaddle.pos.y + this.currentPaddle.height){
-      if(this.currentPaddle.directionMovement.up) this.triggerEventBus("onReleaseUp");
-      this.triggerEventBus("onDown");
+
+    else {
+      this.triggerEventBus("onReleaseDown")
+      this.triggerEventBus("onReleaseUp");
     }
+
   }
 
   
