@@ -68,7 +68,6 @@ export function PongGame(){
   return (
     <div ref={setCanvasCOntainer} className="w-full h-56">
       <canvas ref={setCanvasRef} className="w-full h-full"/>
-      hello canvas
     </div>
   )
 }

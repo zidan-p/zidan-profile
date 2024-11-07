@@ -56,7 +56,6 @@ export class Ball extends Body {
     this.context.fill();
     this.context.closePath();
 
-    this.helper();
   }
 
 
