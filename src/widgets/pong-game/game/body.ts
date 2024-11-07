@@ -14,7 +14,7 @@ export abstract class Body {
   public color: string
 
   public velocity: Vector;
-  public readonly _keyForce = 1;
+  public  _keyForce = 1;
 
   protected readonly context: CanvasRenderingContext2D;
   protected  controller?: Controller
@@ -38,8 +38,9 @@ export abstract class Body {
   }
 
   registerController(){
-
+    
     if(!this.controller) return;
+    console.log("controller registered...");
     this.controller.onDown(() => this.directionMovement.down = true);
     this.controller.onUp(() => this.directionMovement.up = true);
     this.controller.onRight(() => this.directionMovement.right = true);
@@ -53,8 +54,10 @@ export abstract class Body {
 
   setController(c: Controller){
     this.controller = c;
-    this.registerController;
+    this.registerController();
   }
+
+  getController(){return this.controller}
 
   abstract keyControll(): void;
   reposition(){

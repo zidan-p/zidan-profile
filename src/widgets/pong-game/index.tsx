@@ -4,7 +4,8 @@ import { Game } from "./game";
 
 
 
-
+const MAX_FPS = 120 as const;
+const timeStep = 1000 / MAX_FPS;
 
 
 export function PongGame(){
@@ -36,17 +37,23 @@ export function PongGame(){
     let animationFrameId: number;
 
     const game = new Game(canvasCtx, {height: canvasRef.height, width: canvasRef.width});
-  
-    function draw() {
-      // canvasCtx.fillStyle = 'white';
+    
+    let lastTimeStamp = 0;
+
+    function loop(timeStamp: number) {
+      animationFrameId = requestAnimationFrame(loop);
+      // canvasCtx.fillStyle = 'white'
+      
+      if(timeStamp - lastTimeStamp < timeStep) return;
+
+      lastTimeStamp = timeStamp;
 
       game.update(); 
 
       // drawStraightLine()
-      animationFrameId = requestAnimationFrame(draw);
     }
 
-    draw();
+    animationFrameId = requestAnimationFrame(loop);
 
     return () => {
       window.cancelAnimationFrame(animationFrameId)
