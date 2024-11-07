@@ -11,6 +11,8 @@ export interface Controller {
   onReleaseDown(listener: () => any): void;
   onReleaseRight(listener: () => any): void;
   onReleaseLeft(listener: () => any): void;
+
+  update(): void;
 }
 
 
@@ -42,19 +44,23 @@ export class AIController {
 
   constructor(
     private readonly currentPaddle: Rect,
-    private readonly targetBall: Ball
+    private readonly targetBall: Ball,
+    private readonly canvasDimension: {height: number, width: number}
   ){}
 
   public update(){
 
+    // console.log("conctroller")
     // when the ball is above
-    if(this.targetBall.pos.y + (this.targetBall.rad * 2) < this.currentPaddle.pos.y){
+    // console.log(this.controllerEventBus)
+    if(this.targetBall.pos.y + (this.targetBall.rad ) < this.currentPaddle.pos.y){
+      // console.log("update controller ---")
       if(this.currentPaddle.directionMovement.down) this.triggerEventBus("onReleaseDown");
       this.triggerEventBus("onUp");
     }
 
     // when the ball is below
-    else if(this.targetBall.pos.y + (this.targetBall.rad * 2) < this.currentPaddle.pos.y + this.currentPaddle.height){
+    else if(this.targetBall.pos.y + (this.targetBall.rad * 2) > this.currentPaddle.pos.y + this.currentPaddle.height){
       if(this.currentPaddle.directionMovement.up) this.triggerEventBus("onReleaseUp");
       this.triggerEventBus("onDown");
     }
