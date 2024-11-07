@@ -15,11 +15,14 @@ export default function MainLayout(props: Props){
         <header className="mb-1 bg-gray-300 dark:bg-gray-700">
           {props.navBarSlot}
         </header>
-        <AnimatePresence mode="wait">
+        {/* <AnimatePresence mode="wait">
           <motion.main className="bg-white  rounded p-8 px-5 md:px-14 py-14 shadow-sm min-h-[100vh] dark:bg-gray-600 dark:text-gray-300">
             {props.contentSlot}
           </motion.main>
-        </AnimatePresence>
+        </AnimatePresence> */}
+          <main className="bg-white md:rounded p-8 px-5 md:px-14 py-14 shadow-sm min-h-[100vh] dark:bg-gray-600 dark:text-gray-300">
+            {props.contentSlot}
+          </main>
           {props.footerSlot}
       </div>
     </div>

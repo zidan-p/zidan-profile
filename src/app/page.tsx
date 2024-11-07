@@ -34,7 +34,7 @@ export default function Home() {
               <FileTextIcon />
               <span>My CV (Global)</span>
             </a>
-            <a target="_blank" rel="noopener" href='https://www.linkedin.com/in/zidan-putra-rahman-546b6b232/' className="inline-flex gap-1 items-center hover:underline">
+            <a target="_blank" rel="noopener" href='https://www.linkedin.com/in/zidan-putra-rahman/' className="inline-flex gap-1 items-center hover:underline">
               <LinkedInIcon />
               <span>LinkedIn</span>
             </a>

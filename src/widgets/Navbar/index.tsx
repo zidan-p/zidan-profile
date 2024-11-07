@@ -11,7 +11,7 @@ export default function NavBar(){
       <nav className="flex justify-between p-2 pt-4 pb-1">
         <div className="flex gap-9">
           <div className="text-gray-500 font-light dark:text-gray-400 shrink-0">
-            Zidan Putra....
+            Zidan Putra Rahman - <small>(opening)</small>
           </div>
           <div className=" overflow-x-hidden shrink">
             {/* lorem */}
