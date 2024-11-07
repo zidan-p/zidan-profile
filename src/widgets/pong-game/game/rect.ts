@@ -38,6 +38,8 @@ export class Rect extends Body {
   }
 
   render(){
+    this.context.fillStyle = "black";
+    this.context.fillText(`x : ${this.pos.x}, y: ${this.pos.y} `, this.pos.x, this.pos.y);
     this.context.fillStyle = this.color;
     this.context.fillRect(this.pos.x, this.pos.y, this.width, this.height);
   }

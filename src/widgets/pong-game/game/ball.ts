@@ -25,26 +25,27 @@ export class Ball extends Body {
   }
 
   keyControll(){
-    if(this.directionMovement.left) this.velocity.x = -this._keyForce;
-    if(this.directionMovement.up) this.velocity.y = -this._keyForce;
-    if(this.directionMovement.right) this.velocity.x = this._keyForce;
-    if(this.directionMovement.down)this.velocity.y = this._keyForce;
+    // no key controll for ball
+    // if(this.directionMovement.left) this.velocity.x = -this._keyForce;
+    // if(this.directionMovement.up) this.velocity.y = -this._keyForce;
+    // if(this.directionMovement.right) this.velocity.x = this._keyForce;
+    // if(this.directionMovement.down)this.velocity.y = this._keyForce;
 
-    if(!this.directionMovement.left && !this.directionMovement.right){
-      this.velocity.x = 0;
-    }
-    if(!this.directionMovement.up && !this.directionMovement.down){
-      this.velocity.y = 0;
-    }
+    // if(!this.directionMovement.left && !this.directionMovement.right){
+    //   this.velocity.x = 0;
+    // }
+    // if(!this.directionMovement.up && !this.directionMovement.down){
+    //   this.velocity.y = 0;
+    // }
   }
-  reposition(){
-    this.pos = this.pos.add(this.velocity);
-  }
+  // reposition(){
+  //   this.pos = this.pos.add(this.velocity);
+  // }
 
-  move(){
-    this.keyControll();
-    this.reposition();
-  }
+  // move(){
+  //   this.keyControll();
+  //   this.reposition();
+  // }
 
   render(){
     this.context.fillStyle = this.color;
@@ -52,6 +53,21 @@ export class Ball extends Body {
     this.context.arc(this.pos.x, this.pos.y, this.rad , 0, Math.PI*2, false);
     this.context.fill();
     this.context.closePath();
+
+    this.helper();
+  }
+
+
+  helper(){
+    this.context.fillStyle = "red";
+    this.context.fillText(`x: ${this.pos.x}, y: ${this.pos.y}`, 20, 20)
+    // this.context.fillText(`x: ${this.pos.x}, y: ${this.pos.y}`, this.pos.x + this.rad, this.pos.y - this.rad)
+    
+    this.context.fillStyle = "red";
+    this.context.fillText(`vx: ${this.velocity.x}, vy: ${this.velocity.y}`, 20, 10);
+    this.context.fillText(`vy - rad : ${this.pos.y - this.rad} `, 20, 30);
+
+
   }
 
 
@@ -73,13 +89,13 @@ export class Ball extends Body {
     }
   }
 
-  bounceWithEdge(containerRect: Rect){
-    if(this.velocity.y){
+  bounceWithEdge(containerRect: {height: number, width: number}){
+    if(this.velocity.y > 0){
       if(this.pos.y + this.rad > containerRect.height){
         this.velocity.set(this.velocity.x, this.velocity.y * -1)
       }
     }
-
+    
     else if(this.velocity.y < 0){
       if(this.pos.y - this.rad < 0){
         this.velocity.set(this.velocity.x, this.velocity.y * -1)

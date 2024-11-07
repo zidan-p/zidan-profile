@@ -12,13 +12,14 @@ interface CanvasDimension {
   width: number;
 }
 
-class Game {
+export class Game {
 
   private _ball: Ball;
   private _leftPaddle: Rect;
   private _rightPaddle: Rect;
   private _context: CanvasRenderingContext2D;
-  private _canvasDimension: CanvasDimension
+  private _canvasDimension: CanvasDimension;
+
 
   constructor(canvasContext: CanvasRenderingContext2D, canvasDimension: CanvasDimension){
     this._canvasDimension = canvasDimension;
@@ -29,6 +30,7 @@ class Game {
       pos: new Vector(canvasDimension.width / 2, canvasDimension.height / 2),
       rad: 10,
       color: "black",
+      velocity: new Vector(2,2)
     });
 
     this._leftPaddle = new Rect({
@@ -36,7 +38,9 @@ class Game {
       height: 50,
       width: 10,
       pos: new Vector(0, canvasDimension.height / 2),
-      color: "yellow"
+      // pos: new Vector(0, 0),
+      color: "yellow",
+      velocity: new Vector(0,0)
     });
 
     this._rightPaddle = new Rect({
@@ -44,7 +48,8 @@ class Game {
       height: 50,
       width: 10,
       pos: new Vector(canvasDimension.width - 10, canvasDimension.height / 2),
-      color: "yellow"
+      color: "yellow",
+      velocity: new Vector(0,0)
     });
 
     const leftPaddleAiCOntroller = new AIController(this._leftPaddle, this._ball);
@@ -57,7 +62,7 @@ class Game {
 
 
   renderLoop(){
-    this._context.clearRect(0, 0, this._canvasDimension.height, this._canvasDimension.height);
+    this._context.clearRect(0, 0, this._canvasDimension.width, this._canvasDimension.height);
     this._ball.render();
     this._leftPaddle.render();
     this._rightPaddle.render();
@@ -67,6 +72,7 @@ class Game {
     this._ball.move();
     this._leftPaddle.move();
     this._rightPaddle.move();
+    this._ball.bounceWithEdge(this._canvasDimension);
   }
 
   update(){

@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react";
+import { Game } from "./game";
 
 
 
@@ -26,93 +27,21 @@ export function PongGame(){
 
     const scale = (dpr * rect.width) 
 
-    // console.log(rect);
-    console.log(dpr);
     canvasRef.width = Math.floor(rect.width * dpr);
     canvasRef.height = Math.floor(rect.height * dpr);
 
-    console.log(canvasRef.height, canvasRef.width);
-    // canvasCtx.scale(dpr,dpr);
-    
     canvasCtx.canvas.style.width = `${rect.width}px`;
     canvasCtx.canvas.style.height = `${rect.height}px`;
 
     let animationFrameId: number;
 
-    const leftPaddle = {
-      x: 0,
-      y: (canvasRef.height/2) - 50,
-      width: 10,
-      height: 50,
-      color: "yellow",
-      score: 0
-    }
-  
-    const rightPaddle = {
-      x: canvasRef.width - 10,
-      y: (canvasRef.height/2) - 50,
-      width: 10,
-      height: 50,
-      color: "yellow",
-      score: 0
-    }
-
-    const ball = {
-      x: canvasRef.width/2,
-      y: canvasRef.height/2,
-      radius: 5,
-      color: "black",
-      speed: 20,  
-      velocityX: 3, 
-      velocityY: 1,
-    }
-
-    function drawRect(x: number, y: number, w: number, h: number, color: string) {
-      canvasCtx.fillStyle = color;
-      canvasCtx.fillRect(x, y, w, h);
-    }
-
-    function drawCircle(x: number, y: number, r: number, color: string) {
-      canvasCtx.fillStyle = color;
-      canvasCtx.beginPath(); 
-      canvasCtx.arc(x, y, r, 0, Math.PI*2, false);
-      canvasCtx.fill();
-      canvasCtx.closePath();
-    }
-
-    function move() {
-      if(!canvasRef) return;
-
-      ball.x += ball.velocityX; 
-      ball.y += ball.velocityY; 
-      if ( (ball.y + ball.radius > canvasRef.height ) || (ball.y - ball.radius < 0) ) {
-          ball.velocityY =- ball.velocityY;
-      } else if ( (ball.x + ball.radius > canvasRef.width ) || (ball.x - ball.radius < 0)) {
-          ball.velocityX =- ball.velocityX;
-      }
-
-      if(ball.velocityX < 0){
-        if(ball.x <= leftPaddle.x + leftPaddle.width && ball.x >= leftPaddle.x &&
-          (ball.y >= leftPaddle.y || ball.y <= leftPaddle.y + leftPaddle.height)
-        ){
-          // todo use boucing rule for paddle rather than simple reflection
-
-          ball.x *= -1;
-        }
-      }
-
-    }
+    const game = new Game(canvasCtx, {height: canvasRef.height, width: canvasRef.width});
   
     function draw() {
-      canvasCtx.fillStyle = 'white';
-      canvasCtx.fillRect(0, 0, canvasCtx.canvas.width, canvasCtx.canvas.height);
+      // canvasCtx.fillStyle = 'white';
 
-      drawRect(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height, leftPaddle.color);
-      drawRect(rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height, rightPaddle.color); 
-      drawCircle(ball.x, ball.y, ball.radius, ball.color);
+      game.update(); 
 
-      move();
-  
       // drawStraightLine()
       animationFrameId = requestAnimationFrame(draw);
     }
@@ -123,12 +52,14 @@ export function PongGame(){
       window.cancelAnimationFrame(animationFrameId)
     }
 
-  },[canvasRef])
+  },[canvasRef]);
+
+
 
 
 
   return (
-    <div ref={setCanvasCOntainer} className="w-full h-28">
+    <div ref={setCanvasCOntainer} className="w-full h-56">
       <canvas ref={setCanvasRef} className="w-full h-full"/>
       hello canvas
     </div>
