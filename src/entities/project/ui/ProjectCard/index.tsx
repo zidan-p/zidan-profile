@@ -17,7 +17,7 @@ export function ProjectCard (props: Project){
         <p>{props.stack}</p>
       </div>
       <div className="w-full relative min-h-[120px]">
-        <Image fill sizes="200px" className="mx-auto object-cover w-full" src="/img/notFound.png" alt={props.name} />
+        <Image fill sizes="200px" className="mx-auto object-cover w-full" src={ props.img ? props.img : "/img/notFound.png"} alt={props.name} />
       </div>
     </a>
   )
